@@ -15,10 +15,10 @@ var napTimeSelector = document.getElementById("napTimeSelector");
 var lunchTimeSelector = document.getElementById("lunchTimeSelector");
 
 
-var updateClock = function()
+var updateClock = function() //Displays cat image and message displayed based on current time, also contains a function to display the time current time in a "clock" format.
 {
-  var messageText;
-  var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
+  var messageText; //This just defines the variable, the if/else condition contains the value.
+  var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";//default imagw
   
 	
 if (time == partyTime){
@@ -41,8 +41,8 @@ image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/upl
     messageText = "Good afternoon!";
 }
 
-message.innerText = messageText;
-lolcat.src = image;
+message.innerText = messageText; //This takes "var message = document.getElementById("timeEvent")" and replaces the inner text with  any of the above messageText.
+lolcat.src = image; //This takes "var lolcat = document.getElementById("lolcat")" and inserts an image based on the if/else conditions above.
 
 var showCurrentTime = function()
 {
@@ -81,14 +81,14 @@ var showCurrentTime = function()
     // put together the string that displays the time
     var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + "!";
 
-    clock.innerText = clockTime;
+    clock.innerText = clockTime;//Puts the variable clockTime into the HTML ID #clock.
 };
-showCurrentTime();
+showCurrentTime();//This calls and runs the function making the clock run.
 };
 
-updateClock();
-var oneSecond = 1000;
-setInterval(updateClock, oneSecond);
+updateClock();//Calls and runs entire function above.
+var oneSecond = 1000;//1000 milliseconds equals 1 second.
+setInterval(updateClock, oneSecond);//This makes the clock count up every second.
 
 var partyEvent = function() {
    
@@ -107,18 +107,18 @@ var partyEvent = function() {
 };
 
 var lunchEvent = function(){
-	lunchTime = lunchTimeSelector.value;
+	lunchTime = lunchTimeSelector.value;//Allows you to select a different value for lunchTime.
 };
 
 var wakeUpEvent = function(){
-	wakeUpTime = wakeUpTimeSelector.value;
+	wakeUpTime = wakeUpTimeSelector.value;//Allows you to select a different value for wakeUpTime.
 };
 
 var napEvent = function(){
-	napTime = napTimeSelector.value;
+	napTime = napTimeSelector.value;//Allows you to select a different value for napTime.
 };
 
-partyTimeButton.addEventListener("click", partyEvent);
-napTimeSelector.addEventListener("change", napEvent);
+partyTimeButton.addEventListener("click", partyEvent);//Click for party time
+napTimeSelector.addEventListener("change", napEvent);//Allows user to change "value"
 lunchTimeSelector.addEventListener("change", lunchEvent);
 wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
